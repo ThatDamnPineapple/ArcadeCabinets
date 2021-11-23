@@ -20,7 +20,6 @@ namespace ArcadeCabinets.Games.Bases {
         // TODO: Handle basic input functionality in virtual Update method
         public abstract void Update();
         public abstract void Draw(SpriteBatch spriteBatch);
-        public abstract void DrawTarget(SpriteBatch spriteBatch);
         public abstract void DestroyGame();
         public abstract void InitializeRenderTarget();
 
