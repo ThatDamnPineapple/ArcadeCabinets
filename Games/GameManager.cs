@@ -23,5 +23,10 @@ namespace ArcadeCabinets.Games {
         public static void DrawGame() {
             _currentGame.Draw(Main.spriteBatch);
         }
+
+        public static void DrawTarget()
+        {
+            _currentGame.DrawTarget(Main.spriteBatch);
+        }
     }
 }
