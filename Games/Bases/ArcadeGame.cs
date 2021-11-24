@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ArcadeCabinets.Interfaces;
+using Terraria;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -36,5 +37,7 @@ namespace ArcadeCabinets.Games.Bases {
             foreach (IGameObject i in objects)
                 i.Update();
         }
+
+        public void DrawBackground(SpriteBatch spriteBatch) => spriteBatch.Draw(Main.magicPixel, hitbox.TopLeft(), new Rectangle(0, 0, 1, 1), backgroundColor, 0, Vector2.Zero, new Vector2(hitbox.Width, hitbox.Height), SpriteEffects.None, 0f);
     }
 }
