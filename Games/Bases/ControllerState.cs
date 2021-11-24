@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
-
+using Microsoft.Xna.Framework;
 namespace ArcadeCabinets.Games.Bases {
     internal struct ControllerState {
         KeyboardState pastKeyboardState;
@@ -30,7 +30,7 @@ namespace ArcadeCabinets.Games.Bases {
             return KeyPressedState.Uninteracted;
         }
 
-        public KeyPressedState GetMouseLeftPressedState(ButtonState button, ButtonState oldButton) {
+        private KeyPressedState GetMousePressedState(ButtonState button, ButtonState oldButton) {
             var current = button == ButtonState.Pressed;
             var past = oldButton == ButtonState.Pressed;
 
@@ -42,6 +42,11 @@ namespace ArcadeCabinets.Games.Bases {
                 return KeyPressedState.Released;
             return KeyPressedState.Uninteracted;
         }
+
+        public KeyPressedState GetLeftClickState() =>
+            GetMousePressedState(currentMouseState.LeftButton, pastMouseState.LeftButton);
+        public Point GetMousePosition() =>
+            new Point(currentMouseState.X, currentMouseState.Y);
     }
 
     enum KeyPressedState {

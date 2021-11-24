@@ -21,7 +21,7 @@ namespace ArcadeCabinets.Games.Bases {
             InitializeRenderTarget();
         }
         // TODO: Handle basic input functionality in virtual Update method
-        public abstract void Update();
+        protected abstract void Update();
         public abstract void Draw(SpriteBatch spriteBatch);
         public abstract void DestroyGame();
         public abstract void InitializeRenderTarget();
@@ -37,6 +37,10 @@ namespace ArcadeCabinets.Games.Bases {
                 i.Update();
         }
 
-        public void DrawBackground(SpriteBatch spriteBatch) => spriteBatch.Draw(Main.magicPixel, hitbox.TopLeft(), new Rectangle(0, 0, 1, 1), backgroundColor, 0, Vector2.Zero, new Vector2(hitbox.Width, hitbox.Height), SpriteEffects.None, 0f);
+        public void UpdateGame() {
+            controllerState.Update();
+            Update();
+        }
+        public void DrawBackground(SpriteBatch spriteBatch) => spriteBatch.Draw(Main.magicPixel, hitbox, null, backgroundColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
     }
 }
