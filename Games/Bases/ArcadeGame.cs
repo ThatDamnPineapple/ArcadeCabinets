@@ -8,9 +8,12 @@ using System.Collections.Generic;
 namespace ArcadeCabinets.Games.Bases {
     // It's called ArcadeGame in order to not conflict or be confused with XNA's Game class.
     internal abstract class ArcadeGame : IDisposable {
-        protected RenderTarget2D target;
+        public RenderTarget2D Target;
+
         protected Rectangle hitbox;
         protected ControllerState controllerState;
+
+        protected Color backgroundColor;
 
         protected List<IGameObject> objects = new List<IGameObject>();
 
@@ -24,8 +27,14 @@ namespace ArcadeCabinets.Games.Bases {
         public abstract void InitializeRenderTarget();
 
         public void Dispose() {
-            target.Dispose();
+            Target.Dispose();
             DestroyGame();
+        }
+
+        public void UpdateObjects()
+        {
+            foreach (IGameObject i in objects)
+                i.Update();
         }
     }
 }
