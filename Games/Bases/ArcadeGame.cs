@@ -17,6 +17,8 @@ namespace ArcadeCabinets.Games.Bases {
         protected Color backgroundColor;
 
         protected List<IGameObject> objects = new List<IGameObject>();
+
+        //test #3
         public virtual void Initialize() {
             InitializeRenderTarget();
         }
