@@ -45,6 +45,8 @@ namespace ArcadeCabinets.Games.Bases {
 
         public KeyPressedState GetLeftClickState() =>
             GetMousePressedState(currentMouseState.LeftButton, pastMouseState.LeftButton);
+        public KeyPressedState GetRightClickState() =>
+            GetMousePressedState(currentMouseState.RightButton, pastMouseState.RightButton);
         public Point GetMousePosition() =>
             new Point(currentMouseState.X, currentMouseState.Y);
     }

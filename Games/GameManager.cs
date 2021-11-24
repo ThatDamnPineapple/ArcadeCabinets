@@ -17,11 +17,14 @@ namespace ArcadeCabinets.Games {
         } 
 
         public static void UpdateGame() {
-            _currentGame.Update();
+            _currentGame.UpdateGame();
         }
 
         public static void DrawGame() {
+            var prevTargets = Main.instance.GraphicsDevice.GetRenderTargets();
+            Main.instance.GraphicsDevice.SetRenderTarget(_currentGame.Target);
             _currentGame.Draw(Main.spriteBatch);
+            Main.instance.GraphicsDevice.SetRenderTargets(prevTargets);
         }
     }
 }
