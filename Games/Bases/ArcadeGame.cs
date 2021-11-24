@@ -17,8 +17,6 @@ namespace ArcadeCabinets.Games.Bases {
         protected Color backgroundColor;
 
         protected List<IGameObject> objects = new List<IGameObject>();
-
-        //This is a test commit
         public virtual void Initialize() {
             InitializeRenderTarget();
         }
