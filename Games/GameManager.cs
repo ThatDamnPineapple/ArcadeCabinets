@@ -4,6 +4,8 @@ using Terraria;
 namespace ArcadeCabinets.Games {
     internal static class GameManager {
 
+        public static bool TerrariaMusicDisabled = false;
+        public static bool AnyCurrentGame => CurrentGame != null || CurrentGame.Disposed;
         static ArcadeGame _currentGame;
         public static ArcadeGame CurrentGame {
             get {
@@ -17,6 +19,10 @@ namespace ArcadeCabinets.Games {
         } 
 
         public static void UpdateGame() {
+            // TODO: Should disable music? If not, we need to come up with a struct to save music volume and set music volume to 0 while this happens.
+            if (TerrariaMusicDisabled)
+                Main.musicFade[Main.curMusic] = 0f;
+
             _currentGame.UpdateGame();
         }
 

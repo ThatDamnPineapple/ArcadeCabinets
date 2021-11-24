@@ -11,6 +11,7 @@ namespace ArcadeCabinets.Games.Bases {
     internal abstract class ArcadeGame : IDisposable {
         public RenderTarget2D Target;
         public bool ShouldResetTargetWhenVanillaDoes = false;
+        public bool Disposed = false;
 
         protected Rectangle hitbox;
         protected ControllerState controllerState;
@@ -20,7 +21,6 @@ namespace ArcadeCabinets.Games.Bases {
         public virtual void Initialize() {
             InitializeRenderTarget();
         }
-        // TODO: Handle basic input functionality in virtual Update method
         protected abstract void Update();
         public abstract void Draw(SpriteBatch spriteBatch);
         public abstract void DestroyGame();
@@ -29,18 +29,17 @@ namespace ArcadeCabinets.Games.Bases {
         public void Dispose() {
             Target.Dispose();
             DestroyGame();
+            Disposed = true;
         }
-
-        public void UpdateObjects()
-        {
-            foreach (IGameObject i in objects)
-                i.Update();
-        }
-
         public void UpdateGame() {
             controllerState.Update();
             Update();
         }
         public void DrawBackground(SpriteBatch spriteBatch) => spriteBatch.Draw(Main.magicPixel, hitbox, null, backgroundColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+
+        protected void UpdateObjects() {
+            foreach (IGameObject i in objects)
+                i.Update();
+        }
     }
 }
