@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace ArcadeCabinets.Games.Bases {
     // It's called ArcadeGame in order to not conflict or be confused with XNA's Game class.
-    internal abstract class ArcadeGame : IDisposable {
+    public abstract class ArcadeGame : IDisposable {
         public RenderTarget2D Target;
         public bool ShouldResetTargetWhenVanillaDoes = false;
         public bool Disposed = false;

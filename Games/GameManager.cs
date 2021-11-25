@@ -2,7 +2,7 @@
 using Terraria;
 
 namespace ArcadeCabinets.Games {
-    internal static class GameManager {
+    public static class GameManager {
 
         public static bool TerrariaMusicDisabled = false;
         public static bool AnyCurrentGame => CurrentGame != null || CurrentGame.Disposed;

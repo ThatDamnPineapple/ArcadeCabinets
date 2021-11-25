@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 namespace ArcadeCabinets.Games.Bases {
-    internal struct ControllerState {
+    public struct ControllerState {
         KeyboardState pastKeyboardState;
         KeyboardState currentKeyboardState;
 
@@ -51,7 +51,7 @@ namespace ArcadeCabinets.Games.Bases {
             new Point(currentMouseState.X, currentMouseState.Y);
     }
 
-    enum KeyPressedState {
+    public enum KeyPressedState {
         Pressed,
         Held,
         Released,
