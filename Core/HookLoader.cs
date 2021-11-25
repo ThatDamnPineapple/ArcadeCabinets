@@ -5,6 +5,7 @@ namespace ArcadeCabinets.Core {
         internal static void Load() {
             PreventNormalInputHook.Load();
             InitializeRenderTargetsWithVanillaHook.Load();
+            DrawToTargetHook.Load();
         }
     }
 }
