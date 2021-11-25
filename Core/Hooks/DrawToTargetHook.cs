@@ -12,7 +12,7 @@ namespace ArcadeCabinets.Core.Hooks {
 
         private static void Main_OnPreDraw(GameTime obj)
         {
-
+            
         }
     }
 }
