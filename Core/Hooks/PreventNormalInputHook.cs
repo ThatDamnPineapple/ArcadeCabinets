@@ -8,6 +8,10 @@ namespace ArcadeCabinets.Core.Hooks {
             On.Terraria.Main.DoUpdate_HandleInput += InputOverride;
         }
 
+        internal static void Unload()
+        {
+            On.Terraria.Main.DoUpdate_HandleInput -= InputOverride;
+        }
         private static void InputOverride(On.Terraria.Main.orig_DoUpdate_HandleInput orig, Terraria.Main self) {
             if (shouldPreventInput)
                 return;

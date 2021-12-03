@@ -10,6 +10,11 @@ namespace ArcadeCabinets.Core.Hooks {
             Main.OnPreDraw += Main_OnPreDraw;
         }
 
+        internal static void Unload()
+        {
+            Main.OnPreDraw -= Main_OnPreDraw;
+        }
+
         private static void Main_OnPreDraw(GameTime obj)
         {
             

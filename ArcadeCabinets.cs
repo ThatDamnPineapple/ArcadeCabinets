@@ -8,5 +8,9 @@ namespace ArcadeCabinets
 		public override void Load() {
 			HookLoader.Load();
         }
-	}
+        public override void Unload()
+        {
+            HookLoader.Unload();
+        }
+    }
 }

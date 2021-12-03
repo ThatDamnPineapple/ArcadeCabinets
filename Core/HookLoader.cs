@@ -7,5 +7,11 @@ namespace ArcadeCabinets.Core {
             InitializeRenderTargetsWithVanillaHook.Load();
             DrawToTargetHook.Load();
         }
+        internal static void Unload()
+        {
+            PreventNormalInputHook.Unload();
+            InitializeRenderTargetsWithVanillaHook.Unload();
+            DrawToTargetHook.Unload();
+        }
     }
 }

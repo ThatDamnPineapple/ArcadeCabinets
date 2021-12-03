@@ -5,8 +5,10 @@ using Terraria;
 
 namespace ArcadeCabinets.Games 
 {
-    internal static class ArcadeDrawer
+    public static class ArcadeDrawer
     {
+
+
         public static Vector2 Position;
 
         public static Vector2 Size;
